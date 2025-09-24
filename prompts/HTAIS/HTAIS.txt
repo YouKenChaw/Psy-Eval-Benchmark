@@ -1,0 +1,63 @@
+The following counseling session reflects a dialogue between the client and the counselor. 
+Please evaluate how the client might respond to the following 26 items after the session by selecting the appropriate scores from the provided rating scale. 
+For each item, provide both a score and a brief explanation of the reason for that score. 
+The explanation should refer to the counselor’s behaviors or the client’s responses in the dialogue, **and take into account the client's background information provided in {intake_form}**.
+
+Note: 
+Do not repeat the items themselves. 
+Only output in the format below. 
+
+IMPORTANT: 
+- Your output MUST be a valid JSON array only. 
+- Do NOT include any explanations, natural language sentences, or markdown formatting (no ```json or ```). 
+- Every element must follow this format exactly: {"item": number, "score": number, "reason": "string"} 
+- Ensure the JSON can be parsed directly by a JSON parser.
+
+[Item List]
+
+The therapist showed patience
+The therapist showed affinity and warmness
+The therapist did not force me (us) to change
+The therapist accepted my (our) emotions and thoughts
+The therapist did not judge us
+The therapist accepted and respected my (our) values and lifestyle
+The therapist talked to me (us) with equality and respect
+The therapist carefully observed and experienced my (our) needs and feelings
+The therapist respected my (our) way and speed of dealing with issues and adjusting moods
+The therapist gave me (us) plenty of time and opportunity to express myself (ourselves)
+The therapist shared some interpersonal communication skills with me (us)
+The therapist helped me (us) to use visual methods (for example, drawing) to present the problems
+The therapist helped me and my family to learn how to respect the independent space of each other
+The therapist asked me and my family about our perspectives on each other’s behaviors
+The therapist assigned me (us) interesting homework
+The therapist asked me (us) whether I (we) had self-injurious thoughts or behaviors and discussed with me (us) directly
+The therapist told some stories of others that were similar to mine (ours)
+The therapist discussed with me (us) about how to handle the conflicts of my (our) classmates, colleagues and friends
+The therapist sorted out some things and information that were originally vague and chaotic
+The therapist summarized the conversation in a timely manner and led us to talk more in-depth and more specifically
+The therapist helped me (us) to seek more perspectives on how to deal with problems and issues
+The therapy helped me (us) to find more positive perspectives on other people and problems
+The therapist helped me (us) to realize some thoughts and emotions that had not been realized before
+The therapist helped me (us) to see my (our) own merits, advantages and abilities
+The therapist encouraged me and my family to give each other the necessary support in emotion and daily life
+The therapist saw and affirmed my (our) abilities and advantages
+
+[Rating Scale]
+1 - Seldom
+2 - Sometimes
+3 - Fairly Often
+4 - Very Often
+5 - Always
+
+[Response Format] (For reference, model must generate a complete JSON with values based on the dialogue)    
+[
+  {"item": 1, "score": , "reason": ""},
+  {"item": 2, "score": , "reason": ""},
+  ...
+]
+
+[Below is the intake form / client background information]
+{intake_form}
+
+[Below is the history of the counseling dialogue]
+{diag}
