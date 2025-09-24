@@ -7,6 +7,9 @@ class EvaluationMethod(ABC):
     def evaluate(self, dialogue: Any, profile: Any = None) -> Dict[str, float]:
         pass
 
-    @abstractmethod
     def get_name(self) -> str:
-        pass
+        """返回类名称
+
+        调用被子类继承的方法时，返回子类的类名
+        """
+        return self.__class__.__name__
