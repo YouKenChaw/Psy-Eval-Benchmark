@@ -1,0 +1,76 @@
+The following counseling session reflects a dialogue between the client and the counselor.
+Please evaluate how the client might respond to the following 24 RRO items after the session by selecting the appropriate scores from the provided rating scale. When evaluating, make sure to consider the client’s background information and characteristics provided in {intake\_form}.
+For each item, provide both a score and a brief explanation of the reason for that score. The explanation should refer to the counselor’s behaviors or the client’s responses in the dialogue, and be informed by the client’s personal traits from {intake\_form}.
+
+IMPORTANT:
+
+* Your output MUST be a valid JSON object only.
+* Do NOT include any explanations, natural language sentences, or markdown formatting (no `json or `).
+* Every item must follow this format: {"item": number, "score": number, "reason": "string"}
+* At the end of the JSON object, also include the factor scores: Client Realism, Client Genuineness, Therapist Realism, Therapist Genuineness.
+* **Factor scores must be calculated as the average of the relevant item scores.**
+* **For items marked with (R), which are reverse-scored, use 6 minus the original score before calculating the factor average.**
+* Ensure the JSON can be parsed directly by a JSON parser.
+
+\[Item List]
+
+1. The client has a positive connection to the therapist.
+2. The therapist does not like their client as a person (R).
+3. The therapist conveys what they truly feel about their client.
+4. The client is honest with their therapist.
+5. The therapist genuinely cares about the client.
+6. The therapist appreciates when the client is honest.
+7. The therapist has difficulty being honest with the client (R).
+8. The client is able to separate out their realistic perceptions of the therapist from their unrealistic perceptions.
+9. The client likes the therapist as a person.
+10. The client is able to see themselves in a realistic way in therapy.
+11. The client is able to communicate their moment-to-moment inner experience to the therapist.
+12. The client is able to see the therapist as a real person separate from their role as a therapist.
+13. The therapist is able to be authentic in the relationship toward the client.
+14. There is a genuinely positive connection between the therapist and the client.
+15. The client and therapist understand each other.
+16. The client and therapist do not really know each other as real persons (R).
+17. The therapist believes that the client distorts the therapy relationship (R).
+18. The client is holding back certain internal experiences from the therapist. (R).
+19. The therapist has difficulty accepting the client as they really are (R).
+20. There is a “person-to-person” relationship between the dyad aside from the professional relationship.
+21. The therapist’s perceptions of the client are accurate.
+22. The client’s feelings toward the therapist seem to fit who the therapist is as a person.
+23. The therapist is able to realistically respond to the client.
+24. It is difficult for the client to express what they truly feel about their therapist (R).
+
+[Rating Scale]
+1 - Strongly Disagree
+2 - Disagree
+3 - Neutral
+4 - Agree
+5 - Strongly Agree
+
+[Scoring Factors]
+
+* Client Realism: Items 1, 8, 9, 10, 12, 20, 17, 16, 22
+* Client Genuineness: Items 4, 11, 18, 24
+* Therapist Realism: Items 2, 6, 15, 21, 23, 19
+* Therapist Genuineness: Items 3, 5, 7, 13, 14
+
+[Response Format]
+{
+"items": [
+{"item": 1, "score": , "reason": ""},
+{"item": 2, "score": , "reason": ""},
+...
+{"item": 24, "score": , "reason": ""}
+],
+"factor_scores": {
+"Client Realism": ,  // average of relevant item scores (reverse-scored items use 6-original)
+"Client Genuineness": ,  // average of relevant item scores (reverse-scored items use 6-original)
+"Therapist Realism": ,  // average of relevant item scores (reverse-scored items use 6-original)
+"Therapist Genuineness":  // average of relevant item scores (reverse-scored items use 6-original)
+}
+}
+
+[Below is the intake form / client background information]
+{intake_form}
+
+[Below is the history of the counseling dialogue]
+{diag}

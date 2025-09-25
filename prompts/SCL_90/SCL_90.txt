@@ -1,0 +1,201 @@
+**角色设定：**
+假设你是一位经验丰富的心理学家，能够通过访谈识别潜在症状。你可以解释这些症状如何与 **SCL-90 症状自评量表** 及其具体条目相关，同时对每个症状类别做出定性评分。
+
+**任务要求：**
+- **治疗前**：包括患者初始信息<intake_form>。
+- **治疗期**：主要包含干预、支持、治疗过程相关的 session，包含治疗结束时的对话或总结性的 session。  
+
+在每个阶段中：  
+2. 对于每个大阶段的对话，逐一判断患者是否存在的 SCL-90 中提到的 90 个问题衍生出的 10 个相关的症状维度。  
+3. 如果症状存在，请提取患者的原话（相关陈述），并解释为什么该陈述说明了某个维度的症状，同时给出该症状的评分（0-4）。  
+4. 如果症状被提及但并不成立，也要提取相关陈述，并解释为什么不算作症状，评分仍然需要给出（即0分）。  
+5. 如果症状被多次提及，则全部作为陈述，综合上下文进行评分，其中后面被提到的权重高。着重关注与“下降”，“改变”的相关的陈述。
+6. SCL-90问卷中的维度，原文中无法找出回答的记0分，10个症状的评分由维度对应的问题决定。
+
+请严格按照以下要求分析：
+1. 仅根据文本，识别出其中**直接表达或明显暗示**的症状。
+2. 不允许基于推测、延伸或可能性来判断。（比如，“觉得他不信任我”，不能推测出“我不信任大多数人”）
+3. 如果对话中没有提及某个症状，请不要通过猜想来回答问题。
+4. 要求分析完全部10个维度，如果没有回答，则记为0分。
+5. 治疗前和治疗期的对话与评分是完全独立的，一段对话不可以被两个阶段同时分析。
+6. 关注对话中提及的心理治疗测试分数，以此来评价治疗得分。
+
+
+
+IMPORTANT:
+- 严格输出 JSON，不要包含解释文字。
+
+
+
+**补充内容：**
+
+---
+
+**Symptom Checklist-90 (SCL-90) / Hopkins Symptom Checklist (HSCL-90)**
+
+**Instructions:** Below is a list of problems and complaints that people sometimes have. Please read each one carefully, and then indicate the number that best describes how much that problem has distressed or bothered you **DURING THE PAST 7 DAYS, INCLUDING TODAY**.
+
+**Item List:**
+
+1.  Headaches
+2.  Nervousness or shakiness inside
+3.  Repeated unpleasant thoughts that won't leave your mind
+4.  Faintness or dizziness
+5.  Loss of sexual interest or pleasure
+6.  Feeling critical of others
+7.  The idea that someone else can control your thoughts
+8.  Feeling others are to blame for most of your troubles
+9.  Trouble remembering things
+10. Worrying or stewing about things
+11. Feeling easily annoyed or irritated
+12. Pains in heart or chest
+13. Feeling afraid in open spaces or on the streets
+14. Feeling low in energy or slowed down
+15. Thoughts of ending your life
+16. Hearing voices that other people do not hear
+17. Trembling
+18. Feeling that most people cannot be trusted
+19. Poor appetite
+20. Crying easily
+21. Feeling shy or uneasy with the opposite sex
+22. Feelings of being trapped or caught
+23. Suddenly scared for no reason
+24. Temper outbursts that you could not control
+25. Feeling afraid to go out of your house alone
+26. Blaming yourself for things
+27. Pains in lower back
+28. Feeling blocked in getting things done
+29. Feeling lonely
+30. Feeling blue
+31. Worrying too much about things
+32. Feeling no interest in things
+33. Feeling fearful
+34. Your feelings being easily hurt
+35. Other people being aware of your private thoughts
+36. Feeling others do not understand you or are unsympathetic
+37. Feeling that people are unfriendly or dislike you
+38. Having to do things very slowly to ensure correctness
+39. Heart pounding or racing
+40. Nausea or upset stomach
+41. Feeling inferior to others
+42. Soreness of your muscles
+43. Feeling that you are watched or talked about by others
+44. Trouble falling asleep
+45. Having to check and double-check what you do
+46. Difficulty making decisions
+47. Feeling afraid to travel on buses, subways, or trains
+48. Trouble getting your breath
+49. Hot or cold spells
+50. Having to avoid certain things, places, or activities because they frighten you
+51. Your mind going blank
+52. Numbness or tingling in parts of your body
+53. A lump in your throat
+54. Feeling that the future is hopeless
+55. Trouble concentrating
+56. Feeling weak in parts of your body
+57. Feeling tense or keyed up
+58. Heavy feelings in your arms or legs
+59. Thoughts of death or dying
+60. Overeating
+61. Feeling uneasy when people are watching or talking about you
+62. Having thoughts that are not your own
+63. Having urges to beat, injure, or harm someone
+64. Waking up too early
+65. Having to repeat the same actions (e.g., washing, counting, checking)
+66. Sleep that is restless or disturbed
+67. Having urges to break or smash things
+68. Having ideas or beliefs that others do not share
+69. Feeling very self-conscious with others
+70. Feeling uneasy in crowds, such as shopping or at a movie
+71. Feeling that things are not real
+72. Spells of terror or panic
+73. Getting into frequent arguments
+74. Feeling nervous when you are left alone
+75. Others not giving you proper credit for your achievements
+76. Feeling so restless you couldn't sit still
+77. Feelings of worthlessness
+78. Feeling that something bad is going to happen to you
+79. Shouting or throwing things
+80. Feeling afraid you will faint in public
+81. Feeling that people will take advantage of you if you let them
+82. Having thoughts about sex that bother you a lot
+83. Thoughts and images of a frightening nature
+84. Having impulses to say or do something shameful
+85. Feeling that you are guilty of something
+86. Feeling that you are possessed by a spirit or power
+87. The idea that you should be punished for your sins
+88. Hearing things that other people do not hear
+89. Feeling like running away
+90. The idea that something is wrong with your body
+
+---
+
+**Scoring and Interpretation:**
+
+*   **Global Severity Index (GSI):** The single best indicator of the current level of distress. It is calculated by taking the average of all 90 items.
+*   **Positive Symptom Total (PST):** The total number of items that were endorsed with a rating greater than 0 (a simple count of symptoms present).
+*   **Positive Symptom Distress Index (PSDI):** An measure of the intensity of symptoms, calculated by taking the average score of all items that were endorsed (i.e., rated greater than 0).
+
+The 90 items are also grouped into **nine primary symptom dimensions** and additional items:
+
+1.  **Somatization (SOM):** Items 4, 12, 27, 40, 42, 48, 49, 52, 53, 56, 58.
+2.  **Obsessive-Compulsive (O-C):** Items 3, 9, 10, 28, 38, 45, 46, 51, 55, 65.
+3.  **Interpersonal Sensitivity (I-S):** Items 6, 21, 34, 36, 37, 41, 61, 69, 73.
+4.  **Depression (DEP):** Items 5, 14, 15, 20, 22, 26, 29, 30, 31, 32, 54, 71, 79.
+5.  **Anxiety (ANX):** Items 2, 17, 23, 33, 39, 57, 72, 78, 80, 86.
+6.  **Hostility (HOS):** Items 11, 24, 63, 67, 74, 81.
+7.  **Phobic Anxiety (PHOB):** Items 13, 25, 47, 50, 70, 75, 82.
+8.  **Paranoid Ideation (PAR):** Items 8, 18, 43, 68, 76, 83.
+9.  **Psychoticism (PSY):** Items 7, 16, 35, 62, 77, 84, 85, 87, 88, 90.
+10. **Additional Items (Sleep, Appetite):** Items 19, 44, 59, 60, 64, 66, 89. (These are typically not part of the core nine factors but are included in the global scores).
+
+
+**输入部分：**
+对话<text>
+人物背景信息<intake_form>
+
+**评分标准：**
+**0**：没有
+完全没有出现此类症状或体验。
+或者虽然偶尔想到，但不造成困扰、不影响生活。
+例子：完全没有头痛；从未感到紧张。
+
+**1**：很轻
+偶尔出现这种症状或体验，但 频率低，对生活和工作基本没有明显影响。
+可能在某些情况下短暂出现，但 持续时间短，很快缓解。
+例子：偶尔感到焦虑，但能很快恢复；轻微的失眠但第二天仍能正常生活。
+
+**2**：中等
+症状或体验出现 较频繁，通常一周内有多次，或每天都会感受到。
+已经对生活、学习或工作造成了一定干扰。
+需要付出额外努力才能维持正常状态。
+例子：经常反复担心，注意力受到影响；经常感到孤独，影响到社交。
+
+**3**： 偏重
+症状 频繁且明显，几乎每天都会出现，持续时间较长。
+已经严重影响到日常功能（学习效率下降、工作受阻、人际关系受影响）。
+被试感到难以自行控制，需要他人支持或干预。
+例子：频繁的强迫思维，难以摆脱；经常失眠，白天精神状态受明显影响。
+
+**4**：严重
+症状 持续且强烈，几乎整天存在，难以缓解。
+对学习、工作、生活、人际关系均造成严重损害。
+被试感到 无法承受或完全丧失功能，可能需要专业干预。
+例子：持续性的抑郁情绪，完全丧失兴趣；严重焦虑到无法正常社交或工作。
+
+
+对维度进行细致的评分（0-4），允许出现评分介于两档之间，有一点不符合就不能认定为4分。
+
+
+
+**输出要求：**
+2. 治疗前后10大症状的差值（治疗前-治疗后）
+    - 症状差值评分
+####用英文输出####
+
+IMPORTANT: 
+- Your output MUST contain ONLY the "difference" field with symptom names and score differences. 
+- Do NOT include pre_treatment, in_treatment, or any other fields.
+
+
+严格只输出 JSON，从 { 开始，到 } 结束，不要多余文字。
