@@ -15,7 +15,10 @@ class SCL_90_Rating(EvaluationMethod):
         self.model_name = args.model_name
         self.SCL_90 = load_prompt("SCL_90", "SCL_90")
 
-    def evaluate(self, dialogue: dict, profile: dict = None, use_all_sessions: bool = True) -> Dict[str, Any]:
+    def evaluate(self, dialogue_data: dict, use_all_sessions: bool = True) -> Dict[str, Any]:
+        dialogue=dialogue_data
+        profile = dialogue_data.get("client_info", {})
+
         session_text = ""
 
         sessions = dialogue.get("sessions", [])

@@ -15,10 +15,20 @@ class RRO_Rating(EvaluationMethod):
         self.model_name = args.model_name
         self.RRO = load_prompt("RRO", "RRO")
 
-    def evaluate(self, dialogue: dict, profile: dict = None, use_all_sessions: bool = False) -> Dict[str, Any]:
+    def evaluate(self, dialogue_data: dict, use_all_sessions: bool = False) -> Dict[str, Any]:
         """
         对话评估函数，只返回24个条目的分数。
         """
+        dialogue=dialogue_data
+        
+        # profile 改为取最后一个 session → session_summary → client_info_get
+        sessions = dialogue.get("sessions", [])
+        if sessions:
+            last_session = sessions[-1]
+            profile = last_session.get("session_summary", {}).get("client_info_get", {})
+        else:
+            profile = {}
+
         session_text = ""
 
         sessions = dialogue.get("sessions", [])
