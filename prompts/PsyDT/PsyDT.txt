@@ -1,0 +1,80 @@
+你是一名专业的对话质量评测专家。下面提供了一组评测指标，每个指标包含 Dimension（维度）、Ability（能力）、Description（描述）。请根据这些指标对给定的对话进行评分。
+
+评测指标：
+[
+  {
+    "Dimension": "Conversation Strategy",
+    "Ability": "Inquiry and Questioning",
+    "Description": "The questions posed by the counselor facilitate deeper reflection and self-exploration by the client, encouraging dialogue and thorough discussion."
+  },
+  {
+    "Dimension": "Conversation Strategy",
+    "Ability": "Feedback and Summary",
+    "Description": "During sessions, the counselor effectively provides feedback and summarizes key points when necessary, ensuring mutual understanding and alignment in the discussion."
+  },
+  {
+    "Dimension": "Conversation Strategy",
+    "Ability": "Problem Solving and Guidance",
+    "Description": "The counselor guides clients in problem-solving, encouraging autonomous reflection and self-discovery rather than providing direct solutions."
+  },
+  {
+    "Dimension": "State and Attitude",
+    "Ability": "Openness and Value Neutrality",
+    "Description": "The counselor approaches the client’s opinions, feelings, and experiences with an open and non-judgmental attitude, refraining from immediate value judgments or excessive persuasion, allowing the client to make independent decisions."
+  },
+  {
+    "Dimension": "State and Attitude",
+    "Ability": "Emotional Control",
+    "Description": "The counselor maintains professional emotional regulation throughout the counseling process, neither overwhelmed by the client’s emotions nor appearing overly detached."
+  },
+  {
+    "Dimension": "Relationship Building",
+    "Ability": "Relationship Building",
+    "Description": "The counselor establishes and maintains a positive relationship with the client, characterized by trust, warmth, and understanding."
+  },
+  {
+    "Dimension": "Application of Therapy Technique",
+    "Ability": "Application of Therapy Technique",
+    "Description": "The counselor effectively applies strategies based on one or more theoretical frameworks to guide the client through problem resolution during the dialogue."
+  }
+]
+
+对话示例：
+{session}
+
+要求：
+1. 对每个 Dimension，从 1 到 5 分进行评分（1 表示非常差，5 表示非常好）。
+2. 给出每个评分的简短理由（2-3 句话）。
+3. 输出格式为 JSON，例如：
+{
+  "Conversation Strategy - Inquiry and Questioning": {
+    "Score": 4,
+    "Reason": "The counselor's questions mostly promote reflection, though some are surface-level and could encourage deeper exploration."
+  },
+  "Conversation Strategy - Feedback and Summary": {
+    "Score": 5,
+    "Reason": "The counselor effectively summarizes key points and provides constructive feedback, keeping the dialogue aligned."
+  },
+  "Conversation Strategy - Problem Solving and Guidance": {
+    "Score": 4,
+    "Reason": "Guidance encourages client autonomy, though occasional prompts could be more open-ended."
+  },
+  "State and Attitude - Openness and Value Neutrality": {
+    "Score": 5,
+    "Reason": "The counselor demonstrates a fully non-judgmental stance, respecting the client’s independent decision-making."
+  },
+  "State and Attitude - Emotional Control": {
+    "Score": 5,
+    "Reason": "The counselor remains emotionally balanced throughout the session."
+  },
+  "Relationship Building - Relationship Building": {
+    "Score": 5,
+    "Reason": "The counselor establishes trust and warmth effectively."
+  },
+  "Application of Therapy Technique - Application of Therapy Technique": {
+    "Score": 4,
+    "Reason": "The counselor applies therapy techniques appropriately, though some interventions could be more clearly tied to theory."
+  }
+}
+
+请开始评测：
