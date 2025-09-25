@@ -15,21 +15,30 @@ class HTAIS_Rating(EvaluationMethod):
         self.model_name = args.model_name
         self.HTAIS = load_prompt("HTAIS", "HTAIS")
 
-    def evaluate(self, dialogue: dict, profile: dict = None, use_all_sessions: bool = False) -> Dict[str, Any]:
+    def evaluate(self, dialogue_data: dict, use_all_sessions: bool = False) -> Dict[str, Any]:
         """
         对话评估函数，返回紧凑 JSON 分数，同时返回 session_text 和 intake_form。
 
         Args:
             dialogue (dict): 包含多个 session 的对话数据
-            profile (dict, optional): 来访者背景信息
             use_all_sessions (bool, optional): 是否分析整个 dialogue，默认 False，只分析最后一个 session
 
         Returns:
             Dict[str, Any]: 包含 26 个条目的评分字典、session_text 和 intake_form
         """
+
+        dialogue = dialogue_data
+
+        # profile 改为取最后一个 session → session_summary → client_info_get
+        sessions = dialogue.get("sessions", [])
+        if sessions:
+            last_session = sessions[-1]
+            profile = last_session.get("session_summary", {}).get("client_info_get", {})
+        else:
+            profile = {}
+
         session_text = ""
 
-        sessions = dialogue.get("sessions", [])
         if sessions:
             if use_all_sessions:
                 # 拼接所有 session 对话，每个 session 用空行分隔
@@ -67,7 +76,6 @@ class HTAIS_Rating(EvaluationMethod):
         criteria_output = self.client.chat.completions.create(
             model=self.model_name,
             messages=[{"role": "user", "content": prompt}],
-            # 不设置 temperature
         ).choices[0].message.content
 
         # 解析 JSON
@@ -82,6 +90,7 @@ class HTAIS_Rating(EvaluationMethod):
         return {
             "htais": scores
         }
+
 
 
     def get_name(self) -> str:

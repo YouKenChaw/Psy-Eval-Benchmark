@@ -20,7 +20,7 @@ class SAGE(EvaluationMethod):
 
         target = f"{profile.get('main_problem', '')}. {profile.get('core_demands', '')}"
 
-        static_traits = profile["Static Traits"]
+        static_traits = profile["static_traits"]
         simulator_role = f"""
             姓名: {static_traits['name']}
             年龄: {static_traits['age']}
@@ -35,9 +35,9 @@ class SAGE(EvaluationMethod):
 
             主要问题: {profile['main_problem']}
             核心需求: {profile['core_demands']}
-            成长经历: {', '.join(profile['Growth_Experience'])}
-            核心简介: {', '.join(profile['Core_brief'])}
-            特殊情况: {', '.join(profile['Special_Situation'])}
+            成长经历: {', '.join(profile['growth_experience'])}
+            核心简介: {', '.join(profile['core_brief'])}
+            特殊情况: {', '.join(profile['special_situation'])}
             """
 
         summary = session["session_summary"]

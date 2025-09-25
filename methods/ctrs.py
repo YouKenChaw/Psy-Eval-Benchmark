@@ -10,8 +10,8 @@ from utils import load_prompt
 class CTRS_Rating(EvaluationMethod):
     def __init__(self):
         self.gpt_api = OpenAI(
-            api_key="sk-EKMrhZekAxRdQRiJ0d5b65Db0700462dB4F8465481Fc03C5",
-            base_url="https://api.lmtchina.com/v1"
+            api_key=args.api_key,
+            base_url=args.api_base
         )
 
     def evaluate(self, dialogue: Any, profile: Any = None) -> Dict[str, float]:

@@ -15,7 +15,7 @@ class PsyDT_Rating(EvaluationMethod):
         self.model_name = args.model_name
         self.prompt_template = load_prompt("PsyDT", "PsyDT")
 
-    def evaluate(self, dialogue: dict, profile: dict = None, use_all_sessions: bool = False) -> Dict[str, Any]:
+    def evaluate(self, dialogue: dict, use_all_sessions: bool = False) -> Dict[str, Any]:
         session_text = ""
 
         # 拼接对话文本
