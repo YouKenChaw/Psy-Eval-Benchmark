@@ -4,7 +4,7 @@ from typing import Dict, Any
 
 class EvaluationMethod(ABC):
     @abstractmethod
-    def evaluate(self, dialogue: Any, profile: Any = None) -> Dict[str, float]:
+    def evaluate(self, input_case: Any) -> Dict[str, float]:
         pass
 
     @abstractmethod
