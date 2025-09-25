@@ -1,0 +1,25 @@
+The following counseling session reflects a dialogue between the client and the counselor. Please evaluate how the client might respond to the questions below after the session by selecting the appropriate scores from the provided rating scale.
+Note: Please provide only the question numbers and their respective scores in the specified format. Do not repeat the questions themselves or add unnecessary prefixes or control characters.
+[Question List]
+1. As a result of these sessions I am clearer as to how I might be able to change.
+2. What I am doing in therapy gives me new ways of looking at my problem.
+3. I believe counselor likes me.
+4. counselor and I collaborate on setting goals for my therapy.
+5. counselor and I respect each other.
+6. counselor and I are working towards mutually agreed upon goals.
+7. I feel that counselor appreciates me.
+8. counselor and I agree on what is important for me to work on.
+9. I feel counselor cares about me even when I do things that he/she does not approve of.
+10. I feel that the things I do in therapy will help me to accomplish the changes that I want.
+11. counselor and I have established a good understanding of the kind of changes that would be good for me.
+12. I believe the way we are working with my problem is correct.
+[Rating Scale]
+1: Seldom
+2: Sometimes
+3: Fairly Often
+4: Very Often
+5: Always
+[Response Format]
+Question number: Score
+[Below is the history of the counseling dialogue] 
+{dialogue}
