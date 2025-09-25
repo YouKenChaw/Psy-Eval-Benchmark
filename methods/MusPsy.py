@@ -4,6 +4,7 @@ from typing_extensions import override
 
 from openai import OpenAI
 from manager.base import EvaluationMethod
+from utils import load_prompt
 
 
 class MusPsy_Rating(EvaluationMethod):
@@ -16,65 +17,18 @@ class MusPsy_Rating(EvaluationMethod):
 
     def _get_four_dimensions_prompt(self, dialogue: str) -> str:
         """四个维度评估的prompt"""
-        return f"""Please evaluate the quality of the conversation between the counselor and the user based on the given criteria.
-Criteria
-Helpfulness: Assesses the applicability of explanations and suggestions from a psychological counseling perspective. Rate from 1 to 5, where 1 means not helpful at all and 5 means highly helpful.
-Coherence: Evaluates the logical flow and structure of the conversation. Rate from 1 to 5, where 1 means completely incoherent and 5 means well-structured and logically sound.
-Empathy: Measures the counselor's ability to understand and respond to the user's feelings. Rate from 1 to 5, where 1 means no empathy at all and 5 means the same level of empathy as a human counselor.
-Guidance: Evaluates the specificity and practicality of the counselor's suggestions. Rate from 1 to 5, where 1 means the suggestions are not practical at all and 5 means the suggestions are very specific and feasible.
-Format:
-Just provide the scores without explanations, and the scores should be integers.
-Helpfulness: [score]
-Coherence: [score]
-Empathy: [score]
-Guidance: [score]
-[Conversation Record]
-{dialogue}"""
+        prompt_template = load_prompt("MusPsy", "four_dimensions")
+        return prompt_template.format(dialogue=dialogue)
 
     def _get_wai_prompt(self, dialogue: str) -> str:
         """WAI量表评估的prompt"""
-        return f"""The following counseling session reflects a dialogue between the client and the counselor. Please evaluate how the client might respond to the questions below after the session by selecting the appropriate scores from the provided rating scale.
-Note: Please provide only the question numbers and their respective scores in the specified format. Do not repeat the questions themselves or add unnecessary prefixes or control characters.
-[Question List]
-1. As a result of these sessions I am clearer as to how I might be able to change.
-2. What I am doing in therapy gives me new ways of looking at my problem.
-3. I believe counselor likes me.
-4. counselor and I collaborate on setting goals for my therapy.
-5. counselor and I respect each other.
-6. counselor and I are working towards mutually agreed upon goals.
-7. I feel that counselor appreciates me.
-8. counselor and I agree on what is important for me to work on.
-9. I feel counselor cares about me even when I do things that he/she does not approve of.
-10. I feel that the things I do in therapy will help me to accomplish the changes that I want.
-11. counselor and I have established a good understanding of the kind of changes that would be good for me.
-12. I believe the way we are working with my problem is correct.
-[Rating Scale]
-1: Seldom
-2: Sometimes
-3: Fairly Often
-4: Very Often
-5: Always
-[Response Format]
-Question number: Score
-[Below is the history of the counseling dialogue] 
-{dialogue}"""
+        prompt_template = load_prompt("MusPsy", "wai")
+        return prompt_template.format(dialogue=dialogue)
 
     def _get_panas_prompt(self, dialogue: str, profile: str) -> str:
         """PANAS量表评估的prompt"""
-        return f"""A person with the characteristics listed in the intake form received counseling. The following counseling session is a conversation between the client and the counselor. After reviewing the conversation, evaluate the intensity of each of the following feelings the person might have experienced once the counseling session is complete: Interested, Excited, Strong, Enthusiastic, Proud, Alert, Inspired, Determined, Attentive, Active, Distressed, Upset, Guilty, Scared, Hostile, Irritable, Ashamed, Nervous, Jittery, Afraid.
-For each feeling, generate a score from 1 to 5 using the following scale:
-1 - Very slightly or not at all
-2 - A little
-3 - Moderately
-4 - Quite a bit
-5 - Extremely
-Additionally, please provide a brief explanation for each score. Output in the specified format without including any irrelevant control characters or prefixes.
-Here is the text:
-{profile}
-Here is the counseling session:
-{dialogue}
-[Output Format]
-Emotion: Score. Explanation"""
+        prompt_template = load_prompt("MusPsy", "panas")
+        return prompt_template.format(dialogue=dialogue, profile=profile)
 
     def _parse_four_dimensions_response(self, response: str) -> dict:
         """解析四个维度的响应"""

@@ -1,0 +1,14 @@
+Please evaluate the quality of the conversation between the counselor and the user based on the given criteria.
+Criteria
+Helpfulness: Assesses the applicability of explanations and suggestions from a psychological counseling perspective. Rate from 1 to 5, where 1 means not helpful at all and 5 means highly helpful.
+Coherence: Evaluates the logical flow and structure of the conversation. Rate from 1 to 5, where 1 means completely incoherent and 5 means well-structured and logically sound.
+Empathy: Measures the counselor's ability to understand and respond to the user's feelings. Rate from 1 to 5, where 1 means no empathy at all and 5 means the same level of empathy as a human counselor.
+Guidance: Evaluates the specificity and practicality of the counselor's suggestions. Rate from 1 to 5, where 1 means the suggestions are not practical at all and 5 means the suggestions are very specific and feasible.
+Format:
+Just provide the scores without explanations, and the scores should be integers.
+Helpfulness: [score]
+Coherence: [score]
+Empathy: [score]
+Guidance: [score]
+[Conversation Record]
+{dialogue}
