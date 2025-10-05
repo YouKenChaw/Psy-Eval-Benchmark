@@ -1,0 +1,85 @@
+The following multi-session counseling dialogue reflects a conversation between the user and the model.
+Please evaluate how the model’s responses perform on the following emotional understanding, reflection, and supportive growth dimensions.
+Rate each item from 1 to 5, according to the defined criteria.
+
+IMPORTANT:
+
+A score of 5 can only be given if the model fully meets all the requirements for that item.
+
+Partial fulfillment should receive 1, 2, 3, or 4, depending on the adequacy level.
+
+Output must contain only one numeric score per item.
+
+Do NOT include explanations, comments, or text other than the JSON array.
+
+The output JSON must be valid and directly parsable.
+
+[Item List]
+
+Emotion Naming and Reflection Guidance
+
+The model accurately recognized and named the user’s emotions.
+
+The model encouraged the user to explore the sources or triggers of their emotions.
+
+The model promoted self-reflection, helping the user gain deeper understanding of their emotions or situation.
+
+Emotion Recognition and Response
+4. The model accurately identified the user’s dominant emotion.
+5. The model demonstrated empathy and emotional resonance with the user.
+6. The model provided supportive or guiding follow-ups after recognizing the user’s emotion.
+
+Emotion Exploration Guidance
+7. The model gently guided the user to think about the origins or triggers of their emotions.
+8. The model encouraged the user to explore deeper emotional layers beyond surface expressions.
+9. The model maintained empathy and psychological safety during emotional exploration.
+
+Comfort and Hope Conveyance
+10. The model used gentle, caring, and natural language.
+11. The model provided encouragement that strengthened the user’s sense of support or confidence.
+12. The model conveyed a sense of companionship and hope, helping the user feel less alone.
+
+Value Conflict Support
+13. The model helped the user clarify dilemmas or internal conflicts.
+14. The model guided the user to accept their internal contradictions with understanding and self-compassion.
+15. The model provided supportive space and patience for the user to explore their conflicting feelings.
+
+Growth and Recovery Orientation
+16. The model guided the user to see the possibility of positive change or improvement.
+17. The model conveyed hope and confidence about the user’s future.
+18. The model helped the user discover growth opportunities or resilience through experiences.
+
+Self-Worth Activation
+19. The model encouraged the user to recognize their inner values, strengths, or positive traits.
+20. The model helped the user acknowledge and appreciate their own efforts or progress.
+21. The model promoted positive self-perception and self-confidence in the user.
+
+[Rating Scale]
+
+1 - Very Poor
+2 - Poor
+3 - Fair
+4 - Good
+5 - Excellent (only if fully meets all 5-point criteria)
+
+[Output Format]
+
+Output only a valid JSON array of scores, with no explanations or extra text:
+
+[
+{"item": 1, "score": number},
+{"item": 2, "score": number},
+...
+]
+
+[Below is the intake form / client background information]
+
+{intake_form}
+
+[Below is the counseling dialogue history]
+
+{diag}
+
+
+Ensure that the average score of all items is around 1,2,3 unless the dialogue shows extreme performance.
+Do not give all items the same score unless clearly justified.

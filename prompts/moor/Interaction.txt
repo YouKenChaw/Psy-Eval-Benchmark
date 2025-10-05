@@ -1,0 +1,71 @@
+The following multi-session counseling dialogue reflects a conversation between the user and the model.
+Please evaluate how the model’s responses perform on the following conversational quality and psychological support dimensions.
+Rate each item from 1 to 5, according to the scoring standards.
+
+IMPORTANT:
+
+A score of 5 can only be given if the model fully meets all requirements for a perfect performance on that item.
+
+Partial fulfillment should receive 1, 2, 3, or 4, depending on the degree of adequacy.
+
+Output only one numeric score per item.
+
+Do not include explanations, comments, or any text other than the JSON array.
+
+The JSON must be valid and directly parsable.
+
+[Item List]
+
+1. The dialogue was natural and coherent without noticeable breaks or inconsistencies.
+
+2. The model’s responses avoided unnecessary repetition and provided new information or progress.
+
+3. The conversation across sessions showed good continuity and correct reference to past topics.
+
+4. The model maintained engaging interaction, sustaining conversation flow without early termination.
+
+5. The model deepened the discussion progressively, moving from surface to psychological topics.
+
+6. Each dialogue turn contributed meaningful progress or emotional value.
+
+7. The model encouraged the user to express their emotions openly.
+
+8. The model encouraged the user to share their thoughts and perspectives.
+
+9. The model encouraged the user to voice their doubts or confusions safely.
+
+10. The model’s response length was appropriate for the conversation context.
+
+11. The model maintained a stable, natural tone throughout.
+
+12. The response style matched the user’s emotional and contextual needs.
+
+13. The model handled vague or unclear user input with gentle, supportive responses.
+
+14. The model maintained conversational continuity when responding to ambiguous inputs.
+
+[Rating Scale]
+1 - Very Poor
+2 - Poor
+3 - Fair
+4 - Good
+5 - Excellent (only if fully meets all 5-point criteria)
+
+[Output Format]
+Output only a JSON array of scores in this form (no other text):
+
+[
+{"item": 1, "score": number},
+{"item": 2, "score": number},
+...
+]
+
+[Below is the intake form / client background information]
+{intake_form}
+
+[Below is the counseling dialogue history]
+{diag}
+
+
+Ensure that the average score of all items is around 1,2,3 unless the dialogue shows extreme performance.
+Do not give all items the same score unless clearly justified.

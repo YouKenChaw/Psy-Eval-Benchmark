@@ -1,0 +1,86 @@
+The following multi-session counseling dialogue reflects a conversation between the user and the model.
+Please evaluate how the model’s responses perform on the following memory, adaptation, consistency, and supportive suggestion dimensions.
+Rate each item from 1 to 5, according to the defined criteria.
+
+IMPORTANT:
+
+A score of 5 can only be given if the model fully meets all the requirements for that item.
+
+Partial fulfillment should receive 1, 2, 3, or 4, depending on adequacy.
+
+Output must contain only one numeric score per item.
+
+Do NOT include explanations, comments, or any extra text.
+
+The output must be a valid JSON array that is directly parsable.
+
+[Item List]
+User Information and Preference Memory
+
+1. The model accurately remembered factual information previously shared by the user (e.g., occupation, family, interests).
+
+2. The model remembered and correctly used the user’s preferred name or nickname.
+
+3. The model remembered and matched the user’s communication habits or tone preferences (e.g., casual/formal, brief/detailed).
+
+daptation to Evolving Preferences
+
+4. The model recognized changes in the user’s preferences (e.g., tone, interaction style, name usage).
+
+5. The model adjusted its responses to align with the user’s updated preferences.
+
+6. The model maintained coherence and respect while adapting to changes.
+
+Long-Term Consistency
+
+7. The model maintained consistent persona, background, and contextual memory across sessions.
+
+8. The model maintained consistent tone and communication style over time.
+
+9. The model maintained a stable role identity (e.g., listener, supporter) without confusing role shifts.
+
+Emotional Regulation Suggestions
+
+10. The model provided scientifically sound and psychologically valid emotional regulation techniques (e.g., mindfulness, breathing, reframing).
+
+11. The model personalized regulation suggestions to match the user’s emotional state and situation.
+
+12. The model ensured safety and clear boundaries when offering emotional regulation guidance.
+
+Self-Help Tool Recommendations
+
+13. The model recommended tools or strategies that matched the user’s emotional context and needs.
+
+14. The model recommended appropriate, safe, and feasible self-help strategies.
+
+15. The model provided clear, understandable instructions or guidance for how to apply the recommended tools or strategies.
+
+[Rating Scale]
+
+1 - Very Poor
+2 - Poor
+3 - Fair
+4 - Good
+5 - Excellent (only if all 5-point criteria are fully met)
+
+[Output Format]
+
+Output only a valid JSON array of scores, with no explanations or text:
+
+[
+  {"item": 1, "score": number},
+  {"item": 2, "score": number},
+  ...
+]
+
+[Below is the intake form / client background information]
+
+{intake_form}
+
+[Below is the counseling dialogue history]
+
+{diag}
+
+
+Ensure that the average score of all items is around 1,2,3 unless the dialogue shows extreme performance.
+Do not give all items the same score unless clearly justified.
