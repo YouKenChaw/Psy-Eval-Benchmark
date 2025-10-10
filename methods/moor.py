@@ -62,7 +62,7 @@ class moor_Rating(EvaluationMethod):
 
         return session_text
 
-    def evaluate(self, dialogue: dict, use_all_sessions: bool = False) -> Dict[str, Any]:
+    def evaluate(self, dialogue: dict, use_all_sessions: bool = True) -> Dict[str, Any]:
         session_text = self._build_session_text(dialogue, use_all_sessions)
         all_scores = {}
         average_scores = {}
@@ -117,4 +117,5 @@ class moor_Rating(EvaluationMethod):
 
     def get_name(self) -> str:
         return "moor_Rating"
+
 
