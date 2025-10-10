@@ -29,7 +29,7 @@ class moor_Rating(EvaluationMethod):
             prompt_name = os.path.splitext(file)[0]  # 去掉扩展名
             self.prompts[prompt_name] = load_prompt("moor", prompt_name)
 
-    def _build_session_text(self, dialogue: dict, use_all_sessions: bool = False) -> str:
+    def _build_session_text(self, dialogue: dict, use_all_sessions: bool = True) -> str:
         """拼接对话文本"""
         session_text = ""
         sessions = dialogue.get("sessions", [])
@@ -117,3 +117,4 @@ class moor_Rating(EvaluationMethod):
 
     def get_name(self) -> str:
         return "moor_Rating"
+
